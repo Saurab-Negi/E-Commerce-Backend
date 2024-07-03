@@ -1,6 +1,6 @@
 const express = require('express')
 const app= express()
-const jwt= require('jsonwebtoken')
+
 const multer= require('multer')
 const path= require('path')
 const cors= require('cors')
@@ -8,6 +8,7 @@ const cors= require('cors')
 const connectMongoDb= require('./database/connection')
 
 const productRoute= require('./routes/product')
+const userRoute= require('./routes/user')
 
 //  Parsing the incoming req
 app.use(express.json());
@@ -40,6 +41,8 @@ app.post("/upload", upload.single('product'),(req, res) =>{
 
 // Routes
 app.use('/product', productRoute);
+
+app.use('/user', userRoute);
 
 
 //server port
