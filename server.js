@@ -9,6 +9,9 @@ const connectMongoDb= require('./database/connection')
 
 const productRoute= require('./routes/product')
 const userRoute= require('./routes/user')
+const collectionRoute= require('./routes/collection')
+const popularRoute= require('./routes/popular')
+const cartRoute= require('./routes/cart')
 
 //  Parsing the incoming req
 app.use(express.json());
@@ -44,6 +47,11 @@ app.use('/product', productRoute);
 
 app.use('/user', userRoute);
 
+app.use('/collection', collectionRoute);
+
+app.use('/popular', popularRoute);
+
+app.use('/cart', cartRoute);
 
 //server port
 const PORT = process.env.PORT || 3000;

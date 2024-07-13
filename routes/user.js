@@ -29,7 +29,7 @@ router.post('/signup', async (req, res) =>{
             id: user.id
         }
     }
-    const token= jwt.sign(data, 'secret_ecom');
+    const token= jwt.sign(data, 'secret-ecom');
     res.json({success: token, token})
 })
 
@@ -52,7 +52,7 @@ router.post('/login', async (req, res) =>{
         }
     }
     else{
-        res.json({succes: false, error: "Incorrect Email"});
+        res.json({succes: false, error: "Incorrect Email Id"});
     }
 })
 
