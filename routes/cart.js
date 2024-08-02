@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 // Middleware to fetch user
 const fetchUser = async (req, res, next) => {
-    const token = req.header('auth-token');
+    const {token}= req.headers;
     if (!token) {
         console.log('No token provided');
         return res.status(401).send({ error: "Please authenticate using valid token" });

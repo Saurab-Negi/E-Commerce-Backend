@@ -5,7 +5,7 @@ const multer= require('multer')
 const path= require('path')
 const cors= require('cors')
 
-const connectMongoDb= require('./database/connection')
+const connectDB= require('./config/connection')
 
 const productRoute= require('./routes/product')
 const userRoute= require('./routes/user')
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 // Database Connection with MongoDB
-connectMongoDb('mongodb+srv://Saurab17:2486@cluster0.zypfu22.mongodb.net/E-Commerce')
+connectDB();
 
 // Image storage engine
 const storage= multer.diskStorage({
